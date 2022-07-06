@@ -17,32 +17,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.time.LocalDate;
 
 @SpringBootApplication
-public class HelpdeskApplication implements CommandLineRunner {
+public class HelpdeskApplication {
 
-    @Autowired
-    TecnicoRepository tecnicoRepository;
-
-    @Autowired
-    ChamadoRepository chamadoRepository;
-
-    @Autowired
-    ClienteRepository clienteRepository;
 
     public static void main(String[] args) {
         SpringApplication.run(HelpdeskApplication.class, args);
-    }
-
-    @Override
-    public void run(String... args) throws Exception {
-        Tecnico tec1 = new Tecnico(1, "Humberto Frossard Dutra", "82134085860", "humberto.dutra@geradornv.com.br", "123");
-        tec1.addPerfil(Perfil.TECNICO);
-
-        Cliente cli1 = new Cliente(2, "Luiz Robadey Bon", "63887534506", "luiz.bon@geradornv.com.br", "321");
-cli1.addPerfil(Perfil.CLIENTE);
-        Chamado chamado = new Chamado(1, Prioridade.BAIXA, Status.ABERTO, "Orçamento", "Orçamento plano familiar para 4 pessoas: Sendo 2 adultos acima de 40 anos e duas crianças", tec1, cli1);
-
-        tecnicoRepository.save(tec1);
-        clienteRepository.save(cli1);
-        chamadoRepository.save(chamado);
     }
 }
