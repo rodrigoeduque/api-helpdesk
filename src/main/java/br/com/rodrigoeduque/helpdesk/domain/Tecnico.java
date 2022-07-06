@@ -1,6 +1,7 @@
 package br.com.rodrigoeduque.helpdesk.domain;
 
 import br.com.rodrigoeduque.helpdesk.domain.enums.Perfil;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
@@ -13,6 +14,7 @@ public class Tecnico extends Pessoa {
 
     private static final long serialVersionUID = 5245533118693167947L;
     @OneToMany(mappedBy = "tecnico")
+    @JsonIgnore
     private List<Chamado> chamados = new ArrayList<>();
 
     public Tecnico() {
