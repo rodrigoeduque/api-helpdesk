@@ -1,6 +1,7 @@
 package br.com.rodrigoeduque.helpdesk.controller;
 
 import br.com.rodrigoeduque.helpdesk.domain.Tecnico;
+import br.com.rodrigoeduque.helpdesk.domain.dtos.TecnicoDto;
 import br.com.rodrigoeduque.helpdesk.service.TecnicoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,8 +18,8 @@ public class TecnicoController {
     private TecnicoService tecnicoService;
 
     @GetMapping("/{id}")
-    public ResponseEntity<Tecnico> findById(@PathVariable Integer id) {
+    public ResponseEntity<TecnicoDto> findById(@PathVariable Integer id) {
         Tecnico tecnico = tecnicoService.findById(id);
-        return ResponseEntity.ok().body(tecnico);
+        return ResponseEntity.ok().body(new TecnicoDto(tecnico));
     }
 }
