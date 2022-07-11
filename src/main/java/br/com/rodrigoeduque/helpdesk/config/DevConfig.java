@@ -1,6 +1,6 @@
 package br.com.rodrigoeduque.helpdesk.config;
 
-import br.com.rodrigoeduque.helpdesk.service.DBService;
+import br.com.rodrigoeduque.helpdesk.services.DBService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

@@ -1,6 +1,8 @@
 package br.com.rodrigoeduque.helpdesk.domain.dtos;
 
 import br.com.rodrigoeduque.helpdesk.domain.Tecnico;
+import br.com.rodrigoeduque.helpdesk.domain.enums.Perfil;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -17,7 +19,8 @@ public class TecnicoDto implements Serializable {
     protected String cpf;
     protected String email;
     protected String senha;
-    protected Set<String> perfis = new HashSet<>();
+    protected Set<Perfil> perfis = new HashSet<>();
+    @JsonFormat(pattern = "dd/MM/yyyy")
     protected LocalDate dataCriacao = LocalDate.now();
 
     public TecnicoDto() {
@@ -30,7 +33,7 @@ public class TecnicoDto implements Serializable {
         this.cpf = tecnico.getCpf();
         this.email = tecnico.getEmail();
         this.senha = tecnico.getSenha();
-        this.perfis = tecnico.getPerfis().stream().map(x -> x.getDescricao()).collect(Collectors.toSet());
+        this.perfis = tecnico.getPerfis().stream().map(x -> Perfil.toEnum(x.getCodigo())).collect(Collectors.toSet());
         this.dataCriacao = tecnico.getDataCriacao();
     }
 
@@ -54,7 +57,7 @@ public class TecnicoDto implements Serializable {
         return senha;
     }
 
-    public Set<String> getPerfis() {
+    public Set<Perfil> getPerfis() {
         return perfis;
     }
 

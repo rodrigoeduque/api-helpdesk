@@ -2,7 +2,7 @@ package br.com.rodrigoeduque.helpdesk.controller;
 
 import br.com.rodrigoeduque.helpdesk.domain.Tecnico;
 import br.com.rodrigoeduque.helpdesk.domain.dtos.TecnicoDto;
-import br.com.rodrigoeduque.helpdesk.service.TecnicoService;
+import br.com.rodrigoeduque.helpdesk.services.TecnicoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
