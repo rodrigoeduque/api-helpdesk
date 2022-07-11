@@ -1,4 +1,4 @@
-package br.com.rodrigoeduque.helpdesk.service;
+package br.com.rodrigoeduque.helpdesk.services;
 
 import br.com.rodrigoeduque.helpdesk.domain.Chamado;
 import br.com.rodrigoeduque.helpdesk.domain.Cliente;
