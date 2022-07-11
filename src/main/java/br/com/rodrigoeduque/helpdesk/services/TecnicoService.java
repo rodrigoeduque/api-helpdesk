@@ -28,4 +28,11 @@ public class TecnicoService {
         List<TecnicoDto> listaDto = lista.stream().map(obj -> new TecnicoDto(obj)).collect(Collectors.toList());
         return listaDto;
     }
+
+    public Tecnico create(TecnicoDto tecnicoDto) {
+        tecnicoDto.setId(null);
+        Tecnico tecnico = new Tecnico(tecnicoDto);
+        Tecnico save = repository.save(tecnico);
+        return save;
+    }
 }

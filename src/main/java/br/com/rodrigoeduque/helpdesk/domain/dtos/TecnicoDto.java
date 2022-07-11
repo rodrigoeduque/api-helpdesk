@@ -64,4 +64,8 @@ public class TecnicoDto implements Serializable {
     public LocalDate getDataCriacao() {
         return dataCriacao;
     }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 }
