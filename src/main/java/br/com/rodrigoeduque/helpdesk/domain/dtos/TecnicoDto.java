@@ -4,6 +4,7 @@ import br.com.rodrigoeduque.helpdesk.domain.Tecnico;
 import br.com.rodrigoeduque.helpdesk.domain.enums.Perfil;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.HashSet;
@@ -13,11 +14,14 @@ import java.util.stream.Collectors;
 public class TecnicoDto implements Serializable {
 
     private static final long serialVersionUID = -3839211160522639828L;
-
     protected Integer id;
+    @NotNull
     protected String nome;
+    @NotNull
     protected String cpf;
+    @NotNull
     protected String email;
+    @NotNull
     protected String senha;
     protected Set<Perfil> perfis = new HashSet<>();
     @JsonFormat(pattern = "dd/MM/yyyy")

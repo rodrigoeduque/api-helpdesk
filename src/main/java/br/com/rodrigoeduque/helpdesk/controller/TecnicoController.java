@@ -11,6 +11,7 @@ import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
 
@@ -28,13 +29,13 @@ public class TecnicoController {
     }
 
     @GetMapping
-    public List<TecnicoDto> findAll(){
+    public List<TecnicoDto> findAll() {
         List<TecnicoDto> tecnicos = tecnicoService.findAll();
         return tecnicos;
     }
 
     @PostMapping
-    public ResponseEntity<TecnicoDto> create(@RequestBody TecnicoDto tecnicoDto){
+    public ResponseEntity<TecnicoDto> create(@Valid @RequestBody TecnicoDto tecnicoDto) {
         Tecnico tecnico = tecnicoService.create(tecnicoDto);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{id}").buildAndExpand(tecnico.getId())
                 .toUri();
