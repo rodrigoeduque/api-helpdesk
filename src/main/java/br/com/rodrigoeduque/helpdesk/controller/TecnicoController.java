@@ -45,4 +45,10 @@ public class TecnicoController {
         Tecnico tecnico = tecnicoService.update(id, objDto);
         return ResponseEntity.ok(new TecnicoDto(tecnico));
     }
+
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<TecnicoDto> delete(@PathVariable Integer id) {
+        tecnicoService.delete(id);
+        return ResponseEntity.noContent().build();
+    }
 }

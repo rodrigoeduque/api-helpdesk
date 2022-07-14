@@ -32,6 +32,7 @@ public class DBService {
         tec2.addPerfil(Perfil.TECNICO);
         Tecnico tec3 = new Tecnico(null, "Erika Tavares Fonseca", "50548373450", "erika.fonseca@geradornv.com.br", "222");
         tec3.addPerfil(Perfil.TECNICO);
+        Tecnico tec4 = new Tecnico(null,"Rodrigo Duque","07443573650","rodrigoeduque@hotmail.com","000");
 
         Cliente cli1 = new Cliente(null, "Thalia Quintanilha Xavier", "13844663207", "thalia.xavier@geradornv.com.br", "321");
         cli1.addPerfil(Perfil.CLIENTE);
@@ -48,7 +49,7 @@ public class DBService {
         Chamado chamado3 = new Chamado(null, Prioridade.MEDIA, Status.ABERTO, "Orçamento", "Orçamento plano familiar para 4 pessoas: Sendo 2 adultos acima de 40 anos e duas crianças", tec2, cli3);
         Chamado chamado4 = new Chamado(null, Prioridade.ALTA, Status.ENCERRADO, "Orçamento", "Orçamento plano familiar para 4 pessoas: Sendo 2 adultos acima de 40 anos e duas crianças", tec1, cli1);
 
-        tecnicoRepository.saveAll(Arrays.asList(tec1, tec2, tec3));
+        tecnicoRepository.saveAll(Arrays.asList(tec1, tec2, tec3,tec4));
         clienteRepository.saveAll(Arrays.asList(cli1, cli2, cli3, cli4));
         chamadoRepository.saveAll(Arrays.asList(chamado, chamado1, chamado2, chamado3, chamado4));
     }

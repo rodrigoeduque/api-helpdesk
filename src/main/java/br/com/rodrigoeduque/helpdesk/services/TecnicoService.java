@@ -63,4 +63,12 @@ public class TecnicoService {
         repository.save(tecnico);
         return tecnico;
     }
+
+    public void delete(Integer id) {
+        Tecnico obj = findById(id);
+        if (obj.getChamados().size() > 0) {
+            throw new DataIntegrityValidationException("Tecnico possui chamados vinculados, não poderá ser excluido");
+        }
+        repository.deleteById(id);
+    }
 }
