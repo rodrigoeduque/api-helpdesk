@@ -35,11 +35,18 @@ public class ChamadoController {
     }
 
     @PostMapping
-    public ResponseEntity<ChamadoDto> create(@Valid @RequestBody ChamadoDto chamadoDto){
+    public ResponseEntity<ChamadoDto> create(@Valid @RequestBody ChamadoDto chamadoDto) {
         Chamado obj = service.create(chamadoDto);
-
 
         URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("{id}").buildAndExpand(chamadoDto.getId()).toUri();
         return ResponseEntity.created(uri).build();
+    }
+
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<ChamadoDto> update(@Valid @RequestBody ChamadoDto dto, @PathVariable Integer id) {
+
+        Chamado chamado = service.update(id, dto);
+
+        return ResponseEntity.ok().body(new ChamadoDto(chamado));
     }
 }
