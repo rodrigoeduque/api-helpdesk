@@ -21,7 +21,7 @@ public enum Status {
         this.descricao = descricao;
     }
 
-    private static Status toEnum(Integer codigo) {
+    public static Status toEnum(Integer codigo) {
         if (codigo == null) {
             return null;
         }

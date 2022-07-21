@@ -3,6 +3,7 @@ package br.com.rodrigoeduque.helpdesk.domain.dtos;
 import br.com.rodrigoeduque.helpdesk.domain.Chamado;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 public class ChamadoDto {
@@ -11,12 +12,18 @@ public class ChamadoDto {
     private LocalDate dataAbertura = LocalDate.now();
     @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dataFechamento;
-    private String prioridade;
-    private String status;
+    @NotNull
+    private Integer prioridade;
+    @NotNull
+    private Integer status;
+    @NotNull
     private String titulo;
+    @NotNull
     private String observacoes;
+    @NotNull
     private Integer idTecnico;
     private String nomeTecnico;
+    @NotNull
     private Integer idCliente;
     private String nomeCliente;
 
@@ -28,8 +35,8 @@ public class ChamadoDto {
         this.id = chamado.getId();
         this.dataAbertura = chamado.getDataAbertura();
         this.dataFechamento = chamado.getDataFechamento();
-        this.prioridade = chamado.getPrioridade().getDescricao();
-        this.status = chamado.getStatus().getDescricao();
+        this.prioridade = chamado.getPrioridade().getCodigo();
+        this.status = chamado.getStatus().getCodigo();
         this.titulo = chamado.getTitulo();
         this.observacoes = chamado.getObservacoes();
         this.idTecnico = chamado.getTecnico().getId();
@@ -62,19 +69,19 @@ public class ChamadoDto {
         this.dataFechamento = dataFechamento;
     }
 
-    public String getPrioridade() {
+    public Integer getPrioridade() {
         return prioridade;
     }
 
-    public void setPrioridade(String prioridade) {
+    public void setPrioridade(Integer prioridade) {
         this.prioridade = prioridade;
     }
 
-    public String getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 

@@ -1,5 +1,6 @@
 package br.com.rodrigoeduque.helpdesk.domain;
 
+import br.com.rodrigoeduque.helpdesk.domain.dtos.ChamadoDto;
 import br.com.rodrigoeduque.helpdesk.domain.enums.Prioridade;
 import br.com.rodrigoeduque.helpdesk.domain.enums.Status;
 import com.fasterxml.jackson.annotation.JsonFormat;
